@@ -10,14 +10,12 @@
 	<s:form action="/list" method="post">
 		<div class="container">
 
-			<div class="jumbotron">
-				<h1>CIAT Partners 2</h1>
-				<p class="lead">Welcome to the CIAT partners website.</p>
-				<p>
-					<a class="btn btn-lg btn-success" href="list" role="button">View the list</a>
-				</p>
-			</div>
-
+			<h1>CIAT Institutions</h1>
+			<h3>List of partners</h3>
+			<p>
+				<a class="btn btn-lg btn-success" href="#" role="button">Add
+					institution</a>
+			</p>
 			<footer class="footer">
 				<p>&copy; 2017 CIAT, CGIAR research program.</p>
 			</footer>
