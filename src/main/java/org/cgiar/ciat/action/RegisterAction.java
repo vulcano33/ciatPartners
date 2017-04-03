@@ -121,8 +121,8 @@ public class RegisterAction extends ActionSupport {
 		// Save institution
 		InstitutionService.getInstance().saveInstitution(institution);
 		
-		// Read the institutions in order to refresh the interface
-
+		addActionMessage("The request for a new institution has been succesfully created");
+		
 		return "success";
 	}
 

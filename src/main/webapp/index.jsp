@@ -7,6 +7,12 @@
 <link rel="stylesheet" href="css/application.css" type="text/css" />
 </head>
 <body>
+
+	<s:if test="hasActionMessages()">
+		<div class="alert alert-success">
+			<strong>Success!</strong><s:actionmessage />
+		</div>
+	</s:if>
 	<s:form action="/list" method="post">
 		<div class="container">
 
