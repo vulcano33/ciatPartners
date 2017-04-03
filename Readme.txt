@@ -26,5 +26,7 @@ Additionally you can use the next use uselful commands:
 	>> mvn tomcat7:undeploy
 	>> mvn tomcat7:redeploy 
 
+You can import the source code in a web project in eclipse.
+
 Thank you!
 
