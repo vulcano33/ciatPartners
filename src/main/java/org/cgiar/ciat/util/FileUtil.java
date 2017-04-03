@@ -11,9 +11,11 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+import org.cgiar.ciat.model.Country;
 import org.cgiar.ciat.model.Institution;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -32,6 +34,16 @@ public class FileUtil {
 	 * File name where partners info is going to be saved
 	 */
 	private static final String PARTNERS_FILE_NAME = "partners.txt";
+
+	/**
+	 * File name where countries are located
+	 */
+	private static final String COUNTRIES_FILE_NAME = "countries.txt";
+
+	/**
+	 * Location of the countries file
+	 */
+	private static final String COUNTRIES_FILE_LOCATION = "file/";
 
 	/**
 	 * Field for singleton pattern
@@ -156,5 +168,35 @@ public class FileUtil {
 			e.printStackTrace();
 		}
 		return stringBuilder.toString().trim();
+	}
+
+	/**
+	 * Read countries from file in resources folder
+	 * 
+	 * @return
+	 * @throws IOException 
+	 * @throws JsonMappingException 
+	 * @throws JsonParseException 
+	 */
+	public ArrayList<Country> readCountries() throws JsonParseException, JsonMappingException, IOException {
+
+		// List f countries
+		ArrayList<Country> countries = new ArrayList<>();
+
+		// Object mapper to map the institutions to objects
+		ObjectMapper mapper = new ObjectMapper();
+
+		// Get file from resources folder
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource(COUNTRIES_FILE_LOCATION + COUNTRIES_FILE_NAME).getFile());
+		String countriesString = this.getStringFromFile(file);
+
+		// Maps countries only if there are info in the file
+		if (countriesString.length() > 0) {
+			countries = mapper.readValue(countriesString,
+					mapper.getTypeFactory().constructCollectionType(ArrayList.class, Country.class));
+		}
+
+		return countries;
 	}
 }

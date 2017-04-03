@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.cgiar.ciat.model.Institution;
-import org.cgiar.ciat.util.FileUtil;
+import org.cgiar.ciat.service.InstitutionService;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -34,7 +34,7 @@ public class ListAction extends ActionSupport {
 	public String execute() throws JsonGenerationException, JsonMappingException, IOException {
 		
 		// Get the institutions data
-		ArrayList<Institution> institutions = FileUtil.getInstance().readInstitutions();
+		ArrayList<Institution> institutions = InstitutionService.getInstance().readInstitutions();
 		this.setInstitutions(institutions);
 		
 		return "showList";

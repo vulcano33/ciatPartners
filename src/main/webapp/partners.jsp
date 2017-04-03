@@ -7,13 +7,36 @@
 <link rel="stylesheet" href="css/application.css" type="text/css" />
 </head>
 <body>
-	<s:form action="/list" method="post">
+	<s:form action="/institution" method="post">
 		<div class="container">
 
 			<h1>CIAT Institutions</h1>
-			<h3>List of partners</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Branch</th>
+						<th>Acronym</th>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Country</th>
+						<th>City</th>
+					</tr>
+				</thead>
+				<tbody>
+					<s:iterator value="institutions">
+						<tr>
+							<td><s:property value="branch" /></td>
+							<td><s:property value="acronym" /></td>
+							<td><s:property value="name" /></td>
+							<td><s:property value="type" /></td>
+							<td><s:property value="country" /></td>
+							<td><s:property value="city" /></td>
+						</tr>
+					</s:iterator>
+				</tbody>
+			</table>
 			<p>
-				<a class="btn btn-lg btn-success" href="#" role="button">Add
+				<a class="btn btn-lg btn-success" href="institution" role="button">Add
 					institution</a>
 			</p>
 			<footer class="footer">

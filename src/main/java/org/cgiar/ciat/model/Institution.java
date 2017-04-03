@@ -30,9 +30,11 @@ public class Institution implements Serializable {
 	 * @param country
 	 * @param city
 	 * @param headquarter
+	 * @param branch
+	 * @param url
 	 */
 	public Institution(String acronym, String name, String type, String country, String city,
-			String headquarter) {
+			String headquarter, String branch, String url) {
 		super();
 		this.acronym = acronym;
 		this.name = name;
@@ -40,6 +42,8 @@ public class Institution implements Serializable {
 		this.country = country;
 		this.city = city;
 		this.headquarter = headquarter;
+		this.branch = branch;
+		this.url = url;
 	}
 
 	/**
@@ -71,7 +75,17 @@ public class Institution implements Serializable {
 	 * If the institution is a branch, this field points to the headquarter institition
 	 */
 	private String headquarter = null;
-
+	
+	/**
+	 * Indicates if the institution is  a branch
+	 */
+	private String branch = null;
+	
+	/**
+	 * Institution URL
+	 */
+	private String url = null;
+	
 	/**
 	 * Get method for acronym 
 	 * @return the acronym
@@ -166,5 +180,45 @@ public class Institution implements Serializable {
 	 */
 	public void setHeadquarter(String headquarter) {
 		this.headquarter = headquarter;
+	}
+	
+	/**
+	 * Get method for branch 
+	 * @return the branch
+	 */
+	public String getBranch() {
+		return branch;
+	}
+	
+	/**
+	 * Set method for branch
+	 * @param branch the branch to set
+	 */
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+	
+	/**
+	 * Get method for url 
+	 * @return the url
+	 */
+	public String getUrl() {
+		return url;
+	}
+	
+	/**
+	 * Set method for url
+	 * @param url the url to set
+	 */
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 }
