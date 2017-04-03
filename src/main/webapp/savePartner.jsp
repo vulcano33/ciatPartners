@@ -22,15 +22,15 @@
 					<label for="branch">Is this institution a branch?</label>
 				</div>
 				<div class="col-md-3">
-					<s:radio id="branch" name="institution.branch" list="options"
-						value="institution.branch" />
+					<s:radio id="branch" name="institution_branch" list="options"
+						value="institution.branch" onChange="genderChange(this.value)" />
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-2">
+				<div class="col-md-2" id="headquarterLabel">
 					<label>Headquarter</label>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3" id="headquarterValue">
 					<s:select label="Select an institution headquarter" headerKey="-1"
 						headerValue="Select an institution headquarter"
 						list="institutionsList" name="institution.headquarter"
@@ -110,5 +110,6 @@
 
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/application.js"></script>
 </body>
 </html>

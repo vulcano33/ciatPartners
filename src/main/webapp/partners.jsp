@@ -20,6 +20,7 @@
 						<th>Type</th>
 						<th>Country</th>
 						<th>City</th>
+						<th>URL</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,6 +32,7 @@
 							<td><s:property value="type" /></td>
 							<td><s:property value="country" /></td>
 							<td><s:property value="city" /></td>
+							<td><s:property value="url" /></td>
 						</tr>
 					</s:iterator>
 				</tbody>
