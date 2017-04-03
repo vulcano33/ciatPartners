@@ -103,8 +103,9 @@
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-3">
-					<s:submit class="btn-success" method="post"
-						value="Request add new partner" name="register" align="center" />
+					<p>
+						<a class="btn btn-lg btn-success" href="institution" role="button">Request to add a new partner</a>
+					</p>
 				</div>
 			</div>
 		</div>
