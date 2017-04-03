@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Action(value = "register", //
 		results = { //
 				@Result(name = "success", location = "/index.jsp"), //
-				@Result(name = "showList", location = "/savePartner.jsp") } //
+				@Result(name = "input", location = "/savePartner.jsp") } //
 )
 public class RegisterAction extends ActionSupport {
 
@@ -207,5 +207,19 @@ public class RegisterAction extends ActionSupport {
 	 */
 	public void setCountries(ArrayList<String> countries) {
 		this.countries = countries;
+	}
+	
+	/* 
+	 * Method for form validations
+	 * (non-Javadoc)
+	 * @see com.opensymphony.xwork2.ActionSupport#validate()
+	 */
+	public void validate() {
+
+		if (institution.getAcronym().length() > 10) {
+
+			addFieldError("institution.acronym", "It must be less than 10 characters.");
+
+		}
 	}
 }

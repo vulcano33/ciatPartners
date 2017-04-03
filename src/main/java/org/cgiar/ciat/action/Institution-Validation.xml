@@ -1,0 +1,19 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+          "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd"> 
+<validators>
+    
+    <field name="institution.name">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[(^(?:\b\w+\b[\s\r\n]*){1,10}$)]]></param>
+            <message>The name must contains less than 10 words.</message>
+        </field-validator>
+    </field>
+    
+    <field name="institution.url">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[(^(http|https)://)]]></param>
+             <message>The URL must starts with http:// or https://.</message>
+        </field-validator>
+    </field>
+ 
+</validators>

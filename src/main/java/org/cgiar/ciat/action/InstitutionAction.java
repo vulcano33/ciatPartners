@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 import org.cgiar.ciat.model.Institution;
 import org.cgiar.ciat.service.InstitutionService;
 
@@ -89,6 +90,7 @@ public class InstitutionAction extends ActionSupport {
 	}
 
 	@Override
+	@SkipValidation
 	public String execute() throws IOException {
 
 		// If all is correct, return showList, in other case return save
@@ -213,5 +215,19 @@ public class InstitutionAction extends ActionSupport {
 	 */
 	public void setCountries(ArrayList<String> countries) {
 		this.countries = countries;
+	}
+	
+	/* 
+	 * Method for form validations
+	 * (non-Javadoc)
+	 * @see com.opensymphony.xwork2.ActionSupport#validate()
+	 */
+	public void validate() {
+
+		if (this.institution.getAcronym().length() > 10) {
+
+			addFieldError("institution.acronym", "It must be less than 10 characters.");
+
+		}
 	}
 }

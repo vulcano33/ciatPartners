@@ -8,6 +8,11 @@
 </head>
 <body>
 
+	<s:if test="hasActionErrors()">
+		<div class="errors">
+			<s:actionerror />
+		</div>
+	</s:if>
 	<s:form action="/register" method="post" cssClass="form-signin">
 		<h2 class="form-signin-heading">Request a new CIAT Institution</h2>
 		<blockquote>
@@ -52,7 +57,7 @@
 				</div>
 				<div class="col-md-3">
 					<input size="29" type="text" id="institution_acronym"
-						name="institution.acronym"
+						name="institution.acronym" max="10"
 						value="<s:property value='institution.acronym'/>" />
 				</div>
 			</div>
